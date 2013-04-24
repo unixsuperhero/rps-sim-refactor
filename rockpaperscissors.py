@@ -5,6 +5,11 @@ def throw():
 def getHand():
     return [throw(), throw()]
 
+def bothInHand(hand, one, two)
+    if one in hand and two in hand
+        return true
+    return false
+
 def rps(numRounds, numTrials):
     proportions = []
     for trial in range(numTrials):
@@ -12,11 +17,11 @@ def rps(numRounds, numTrials):
             wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
             for hand in range(numRounds):
                 hand = getHand()
-                if 'rock' in hand and 'paper' in hand:
+                if bothInHand(hand, 'rock', 'paper'):
                     wins['paper'] += 1
-                elif 'paper' in hand and 'scissors' in hand:
+                elif bothInHand(hand, 'paper', 'scissors'):
                     wins['scissors'] += 1
-                elif 'scissors' in hand and 'rock' in hand:
+                elif bothInHand(hand, 'scissors', 'rock'):
                     wins['rock'] += 1
                 else:
                     wins['draw'] += 1
