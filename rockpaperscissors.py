@@ -10,6 +10,15 @@ def bothInHand(hand, one, two)
         return true
     return false
 
+def whoWon(hand)
+    if bothInHand(hand, 'rock', 'paper'):
+        return 'paper'
+    if bothInHand(hand, 'paper', 'scissors'):
+        return 'scissors'
+    if bothInHand(hand, 'scissors', 'rock'):
+        return 'rock'
+    return 'draw'
+
 def rps(numRounds, numTrials):
     proportions = []
     for trial in range(numTrials):
@@ -17,14 +26,7 @@ def rps(numRounds, numTrials):
             wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
             for hand in range(numRounds):
                 hand = getHand()
-                if bothInHand(hand, 'rock', 'paper'):
-                    wins['paper'] += 1
-                elif bothInHand(hand, 'paper', 'scissors'):
-                    wins['scissors'] += 1
-                elif bothInHand(hand, 'scissors', 'rock'):
-                    wins['rock'] += 1
-                else:
-                    wins['draw'] += 1
+                wins[ whoWon(hand) ] += 1
 
         trialResults = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
         for k in trialResults.keys():
