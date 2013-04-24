@@ -25,8 +25,7 @@ def rps(numRounds, numTrials):
         for round in range(numRounds):
             wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
             for hand in range(numRounds):
-                hand = getHand()
-                wins[ whoWon(hand) ] += 1
+                wins[ whoWon( getHand() ) ] += 1
 
         trialResults = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
         for k in trialResults.keys():
