@@ -9,7 +9,6 @@ def rps(numRounds, numTrials):
     proportions = []
     for trial in range(numTrials):
         for round in range(numRounds):
-            results = []
             wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
             for hand in range(numRounds):
                 hand = getHand()
