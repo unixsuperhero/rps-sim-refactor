@@ -32,19 +32,12 @@ def rps(numRounds, numTrials):
         #pylab.hist(proportions, bins=10, histtype='bar')
         #pylab.show()
     #print proportions
-    rockProportion = 0
-    paperProportion = 0
-    scissorsProportion = 0
-    drawProportion = 0
+    final_props = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
     for element in proportions:
-        rockProportion += element['rock']
-        paperProportion += element['paper']
-        scissorsProportion += element['scissors']
-        drawProportion += element['draw']
-    rockProportion /= float(numTrials)
-    paperProportion /= float(numTrials)
-    scissorsProportion /= float(numTrials)
-    drawProportion /= float(numTrials)
-    print rockProportion, paperProportion, scissorsProportion, drawProportion
+        for k in final_pros.keys()
+          final_props[k] += element[k]
+    for k in final_pros.keys()
+      final_props[k] /= float(numTrials)
+    print final_props['rock'], final_props['paper'], final_props['scissors'], final_props['draw']
 
 rps(100,100)
