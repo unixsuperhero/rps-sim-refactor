@@ -20,29 +20,21 @@ def rps(numRounds, numTrials):
                     results.append('rock')
                 else:
                     results.append('draw')
-            rock = 0
-            paper = 0
-            scissors = 0
-            draw = 0
+            wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
             for result in results:
-                if result == 'rock':
-                    rock += 1
-                elif result == 'paper':
-                    paper += 1
-                elif result == 'scissors':
-                    scissors += 1
-                else:
-                    draw += 1
+                wins[result] += 1
         trialResults = []
-        rockProportion = rock/float(numRounds)
+        rockProportion = wins['rock']/float(numRounds)
         trialResults.append(rockProportion)
-        paperProportion = paper/float(numRounds)
+        paperProportion = wins['paper']/float(numRounds)
         trialResults.append(paperProportion)
-        scissorsProportion = scissors/float(numRounds)
+        scissorsProportion = wins['scissors']/float(numRounds)
         trialResults.append(scissorsProportion)
-        drawProportion = draw/float(numRounds)
+        drawProportion = wins['draw']/float(numRounds)
         trialResults.append(drawProportion)
+
         proportions.append(trialResults)
+
         print("num of rounds = "+str(numRounds)+" trial proportions = "+str(trialResults))
 
         #pylab.hist(proportions, bins=10, histtype='bar')
@@ -50,7 +42,7 @@ def rps(numRounds, numTrials):
     #print proportions
     rockProportion = 0
     paperProportion = 0
-    scissorsProportion = 0 
+    scissorsProportion = 0
     drawProportion = 0
     for element in proportions:
         rockProportion += element[0]
