@@ -10,19 +10,18 @@ def rps(numRounds, numTrials):
     for trial in range(numTrials):
         for round in range(numRounds):
             results = []
+            wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
             for hand in range(numRounds):
                 hand = getHand()
                 if 'rock' in hand and 'paper' in hand:
-                    results.append('paper')
+                    wins['paper'] += 1
                 elif 'paper' in hand and 'scissors' in hand:
-                    results.append('scissors')
+                    wins['scissors'] += 1
                 elif 'scissors' in hand and 'rock' in hand:
-                    results.append('rock')
+                    wins['rock'] += 1
                 else:
-                    results.append('draw')
-            wins = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
-            for result in results:
-                wins[result] += 1
+                    wins['draw'] += 1
+
         trialResults = []
         rockProportion = wins['rock']/float(numRounds)
         trialResults.append(rockProportion)
