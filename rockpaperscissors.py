@@ -21,15 +21,9 @@ def rps(numRounds, numTrials):
                 else:
                     wins['draw'] += 1
 
-        trialResults = []
-        rockProportion = wins['rock']/float(numRounds)
-        trialResults.append(rockProportion)
-        paperProportion = wins['paper']/float(numRounds)
-        trialResults.append(paperProportion)
-        scissorsProportion = wins['scissors']/float(numRounds)
-        trialResults.append(scissorsProportion)
-        drawProportion = wins['draw']/float(numRounds)
-        trialResults.append(drawProportion)
+        trialResults = {'rock': 0, 'paper': 0, 'scissors': 0, 'draw': 0}
+        for k in trialResults.keys():
+            trialResults[k] = wins[k] / float(numRounds)
 
         proportions.append(trialResults)
 
@@ -43,10 +37,10 @@ def rps(numRounds, numTrials):
     scissorsProportion = 0
     drawProportion = 0
     for element in proportions:
-        rockProportion += element[0]
-        paperProportion += element[1]
-        scissorsProportion += element[2]
-        drawProportion += element[3]
+        rockProportion += element['rock']
+        paperProportion += element['paper']
+        scissorsProportion += element['scissors']
+        drawProportion += element['draw']
     rockProportion /= float(numTrials)
     paperProportion /= float(numTrials)
     scissorsProportion /= float(numTrials)
